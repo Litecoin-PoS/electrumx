@@ -123,6 +123,13 @@ class Prefetcher:
 
                 # Special handling for genesis block
                 if first == 0:
+                    header = self.coin.block_header(blocks[0], 0)
+                    self.logger.info(f'info 1 '
+                                     f'{header}')
+                    header_hex_hash = hash_to_hex_str(self.coin.header_hash(header))
+                    self.logger.info(f'info 2 '
+                                     f'{header_hex_hash}')
+
                     blocks[0] = self.coin.genesis_block(blocks[0])
                     self.logger.info(f'verified genesis block with hash '
                                      f'{hex_hashes[0]}')
