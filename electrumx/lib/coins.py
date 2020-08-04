@@ -573,7 +573,34 @@ class BitcoinCash(BitcoinMixin, Coin):
                     '<br/><br/>')
         return False
 
+class LitecoinPoS(BitcoinMixin, Coin):
+    NAME = "LitecoinPoS"
+    DESERIALIZER = lib_tx.DeserializerSegWit
+    MEMPOOL_HISTOGRAM_REFRESH_SECS = 120
+    TX_COUNT = 3006
+    TX_COUNT_HEIGHT = 2000
+    TX_PER_BLOCK = 1400
+    CRASH_CLIENT_VER = (3, 2, 3)
+    BLACKLIST_URL = 'https://electrum.org/blacklist.json'
+    PEERS = [
+        'seed1.litecoinpos.org',
+        'seed2.litecoinpos.org',
+        'seed3.litecoinpos.org',
+        'seed4.litecoinpos.org',
+        'seed5.tokl.io',
+        'seed6.tokl.io'
+    ]
 
+    @classmethod
+    def warn_old_client_on_tx_broadcast(cls, client_ver):
+        if client_ver < (3, 3, 3):
+            return ('<br/><br/>'
+                    'Your transaction was successfully broadcast.<br/><br/>'
+                    'However, you are using a VULNERABLE version of Electrum.<br/>'
+                    'Download the new version from the usual place:<br/>'
+                    'https://electrum.org/'
+                    '<br/><br/>')
+        return False
 class Bitcoin(BitcoinMixin, Coin):
     NAME = "Bitcoin"
     DESERIALIZER = lib_tx.DeserializerSegWit
