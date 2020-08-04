@@ -334,13 +334,6 @@ class BitcoinMixin:
     XPRV_VERBYTES = bytes.fromhex("0488ade4")
     RPC_PORT = 8332
 
-class LitecoinPoSMixin:
-    SHORTNAME = "LTCP"
-    NET = "mainnet"
-    XPUB_VERBYTES = bytes.fromhex("7788B21E")
-    XPRV_VERBYTES = bytes.fromhex("7788ADE4")
-    RPC_PORT = 58931
-
 class NameMixin:
     DATA_PUSH_MULTIPLE = -2
 
@@ -579,12 +572,23 @@ class BitcoinCash(BitcoinMixin, Coin):
                     '<br/><br/>')
         return False
 
-class LitecoinPoS(LitecoinPoSMixin, Coin):
+class LitecoinPoS(Coin):
     NAME = "LitecoinPoS"
     DESERIALIZER = lib_tx.DeserializerSegWit
     TX_COUNT = 3006
     TX_COUNT_HEIGHT = 2000
     TX_PER_BLOCK = 2
+    SHORTNAME = "LTCP"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("7788B21E")
+    XPRV_VERBYTES = bytes.fromhex("7788ADE4")
+    RPC_PORT = 58931
+    GENESIS_HASH = ('000002a62d284b34a40e18f27fc770bf'
+                    '26f7a61560ae6a072a2c95aabc60a129')
+
+    P2PKH_VERBYTE = bytes.fromhex("32")
+    P2SH_VERBYTES = bytes.fromhex("6E")
+    WIF_BYTE = bytes.fromhex("80")
 
 class Bitcoin(BitcoinMixin, Coin):
     NAME = "Bitcoin"
