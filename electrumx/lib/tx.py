@@ -182,12 +182,7 @@ class Deserializer:
 
     def _read_nbytes(self, n):
         cursor = self.cursor
-        self.logger.info(f'cursor 1 {cursor}')
-
         self.cursor = end = cursor + n
-        self.logger.info(f'cursor 2 {end}')
-        self.logger.info(f'Binary length {self.binary_length}')
-
         assert self.binary_length >= end
         return self.binary[cursor:end]
 
