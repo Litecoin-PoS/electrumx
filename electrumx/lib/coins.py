@@ -334,6 +334,12 @@ class BitcoinMixin:
     XPRV_VERBYTES = bytes.fromhex("0488ade4")
     RPC_PORT = 8332
 
+class LitecoinPoSMixin:
+    SHORTNAME = "LTCP"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("7788B21E")
+    XPRV_VERBYTES = bytes.fromhex("7788ADE4")
+    RPC_PORT = 58931
 
 class NameMixin:
     DATA_PUSH_MULTIPLE = -2
@@ -573,27 +579,8 @@ class BitcoinCash(BitcoinMixin, Coin):
                     '<br/><br/>')
         return False
 
-class LitecoinPoS(BitcoinMixin, Coin):
+class LitecoinPoS(LitecoinPoSMixin, Coin):
     NAME = "LitecoinPoS"
-    DESERIALIZER = lib_tx.DeserializerSegWit
-    MEMPOOL_HISTOGRAM_REFRESH_SECS = 120
-    TX_COUNT = 3006
-    TX_COUNT_HEIGHT = 2000
-    TX_PER_BLOCK = 1400
-    CRASH_CLIENT_VER = (3, 2, 3)
-    RPC_PORT = 58931
-    GENESIS_HASH = ('000002a62d284b34a40e18f27fc770bf'
-                    '26f7a61560ae6a072a2c95aabc60a129')
-    @classmethod
-    def warn_old_client_on_tx_broadcast(cls, client_ver):
-        if client_ver < (3, 3, 3):
-            return ('<br/><br/>'
-                    'Your transaction was successfully broadcast.<br/><br/>'
-                    'However, you are using a VULNERABLE version of Electrum.<br/>'
-                    'Download the new version from the usual place:<br/>'
-                    'https://electrum.org/'
-                    '<br/><br/>')
-        return False
 class Bitcoin(BitcoinMixin, Coin):
     NAME = "Bitcoin"
     DESERIALIZER = lib_tx.DeserializerSegWit
