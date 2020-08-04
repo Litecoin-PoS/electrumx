@@ -574,7 +574,7 @@ class BitcoinCash(BitcoinMixin, Coin):
 
 class LitecoinPoS(Coin):
     NAME = "LitecoinPoS"
-    DESERIALIZER = lib_tx.DeserializerSegWit
+    DESERIALIZER = lib_tx.Deserializer
     TX_COUNT = 3006
     TX_COUNT_HEIGHT = 2000
     TX_PER_BLOCK = 2
@@ -591,20 +591,6 @@ class LitecoinPoS(Coin):
     P2PKH_VERBYTE = bytes.fromhex("32")
     P2SH_VERBYTES = bytes.fromhex("6E")
     WIF_BYTE = bytes.fromhex("80")
-
-    @classmethod
-    def genesis_block(cls, block):
-        '''Check the Genesis block is the right one for this coin.
-
-        Return the block less its unspendable coinbase.
-        '''
-        header = cls.block_header(block, 0)
-        header_hex_hash = hash_to_hex_str(cls.header_hash(header))
-        if header_hex_hash != cls.GENESIS_HASH:
-            raise CoinError(f'genesis block has hash {header_hex_hash} '
-                            f'expected {cls.GENESIS_HASH}')
-
-        return header + b'\0'
 
 
 class Bitcoin(BitcoinMixin, Coin):
