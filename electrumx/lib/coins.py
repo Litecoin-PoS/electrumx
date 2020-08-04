@@ -589,10 +589,6 @@ class LitecoinPoS(Coin):
     P2PKH_VERBYTE = bytes.fromhex("32")
     P2SH_VERBYTES = bytes.fromhex("6E")
     WIF_BYTE = bytes.fromhex("80")
-    @classmethod
-    def genesis_block(cls, block):
-        super().genesis_block(block)
-        return block
 
 class Bitcoin(BitcoinMixin, Coin):
     NAME = "Bitcoin"
