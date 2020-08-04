@@ -598,9 +598,9 @@ class LitecoinPoS(Coin):
         '''
         header = cls.block_header(block, 0)
         header_hex_hash = hash_to_hex_str(cls.header_hash(header))
-        if header_hex_hash != cls.GENESIS_HASH:
-            raise CoinError(f'genesis block has hash {header_hex_hash} '
-                            f'expected {cls.GENESIS_HASH}')
+        #if header_hex_hash != cls.GENESIS_HASH:
+            #raise CoinError(f'genesis block has hash {header_hex_hash} '
+             #               f'expected {cls.GENESIS_HASH}')
 
         return header + b'\0'
 
