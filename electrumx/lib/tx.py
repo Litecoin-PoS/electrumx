@@ -260,7 +260,6 @@ class DeserializerSegWit(Deserializer):
     def _read_tx_parts(self):
         '''Return a (deserialized TX, tx_hash, vsize) tuple.'''
         start = self.cursor
-        self.logger.info(f'START {start}')
 
         marker = self.binary[self.cursor + 4]
         if marker:
