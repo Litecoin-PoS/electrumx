@@ -37,7 +37,7 @@ from electrumx.lib.util import (
     unpack_le_int32_from, unpack_le_int64_from, unpack_le_uint16_from,
     unpack_be_uint16_from,
     unpack_le_uint32_from, unpack_le_uint64_from, pack_le_int32, pack_varint,
-    pack_le_uint32, pack_le_int64, pack_varbytes,
+    pack_le_uint32, pack_le_int64, pack_varbytes, class_logger,
 )
 
 ZERO = bytes(32)
@@ -138,7 +138,10 @@ class Deserializer:
         The hash needs to be reversed for human display; for efficiency
         we process it in the natural serialized order.
         '''
-        start = self.cursor
+        start = self.cursor 
+        self.logger.info(f'cursor {start} ')
+        self.logger.info(f'tx {self.read_tx()} ')
+
         return self.read_tx(), self.TX_HASH_FN(self.binary[start:self.cursor])
 
     def read_tx_and_vsize(self):
