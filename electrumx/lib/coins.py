@@ -573,6 +573,8 @@ class BitcoinCash(BitcoinMixin, Coin):
         return False
 
 class LitecoinPoS(ScryptMixin, Coin):
+    DESERIALIZER = lib_tx.DeserializerSegWit
+
     NAME = "LitecoinPoS"
     SHORTNAME = "LTCP"
     NET = "mainnet"
