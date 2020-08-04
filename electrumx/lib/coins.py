@@ -583,8 +583,8 @@ class LitecoinPoS(Coin):
     XPUB_VERBYTES = bytes.fromhex("7788B21E")
     XPRV_VERBYTES = bytes.fromhex("7788ADE4")
     RPC_PORT = 58931
-    GENESIS_HASH = ('000002a62d284b34a40e18f27fc770bf'
-                    '26f7a61560ae6a072a2c95aabc60a129')
+    GENESIS_HASH = ('268b6398ab2a75d44b4e8566e4658983'
+                    '413f5ebf8ef27d1a2ab776a41876094d')
 
     P2PKH_VERBYTE = bytes.fromhex("32")
     P2SH_VERBYTES = bytes.fromhex("6E")
