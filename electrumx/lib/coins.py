@@ -572,7 +572,7 @@ class BitcoinCash(BitcoinMixin, Coin):
                     '<br/><br/>')
         return False
 
-class LitecoinPoS(ScryptMixin, Coin):
+class LitecoinPoS(Coin):
     DESERIALIZER = lib_tx.DeserializerSegWit
 
     NAME = "LitecoinPoS"
@@ -583,7 +583,6 @@ class LitecoinPoS(ScryptMixin, Coin):
     WIF_BYTE = bytes.fromhex("80")
     GENESIS_HASH = ('000002a62d284b34a40e18f27fc770bf'
                     '26f7a61560ae6a072a2c95aabc60a129')
-    DAEMON = daemon.LegacyRPCDaemon
     TX_COUNT = 3006
     TX_COUNT_HEIGHT = 2000
     TX_PER_BLOCK = 2
