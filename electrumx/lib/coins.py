@@ -586,9 +586,6 @@ class LitecoinPoS(Coin):
     GENESIS_HASH = ('000002a62d284b34a40e18f27fc770bf'
                     '26f7a61560ae6a072a2c95aabc60a129')
 
-    HEADER_VALUES = ('version', 'prev_block_hash', 'merkle_root', 'timestamp',
-                     'bits', 'nonce','prevout_stake')
-    HEADER_UNPACK = struct.Struct('< I 32s 32s I I I 32s').unpack_from
     BASIC_HEADER_SIZE = 117
 
     P2PKH_VERBYTE = bytes.fromhex("32")

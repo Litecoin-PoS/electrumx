@@ -157,7 +157,7 @@ class Deserializer:
 
     def _read_input(self):
         return TxInput(
-            self._read_nbytes(32),   # prev_hash
+            self._read_nbytes(33),   # prev_hash
             self._read_le_uint32(),  # prev_idx
             self._read_varbytes(),   # script
             self._read_le_uint32()   # sequence
