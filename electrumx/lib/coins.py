@@ -584,15 +584,6 @@ class LitecoinPoS(BitcoinMixin, Coin):
     RPC_PORT = 58931
     GENESIS_HASH = ('000002a62d284b34a40e18f27fc770bf'
                     '26f7a61560ae6a072a2c95aabc60a129')
-    PEERS = [
-        'seed1.litecoinpos.org',
-        'seed2.litecoinpos.org',
-        'seed3.litecoinpos.org',
-        'seed4.litecoinpos.org',
-        'seed5.tokl.io',
-        'seed6.tokl.io'
-    ]
-
     @classmethod
     def warn_old_client_on_tx_broadcast(cls, client_ver):
         if client_ver < (3, 3, 3):
