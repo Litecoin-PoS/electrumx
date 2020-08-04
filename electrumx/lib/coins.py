@@ -586,6 +586,8 @@ class LitecoinPoS(Coin):
     GENESIS_HASH = ('000002a62d284b34a40e18f27fc770bf'
                     '26f7a61560ae6a072a2c95aabc60a129')
 
+    BASIC_HEADER_SIZE = 117
+
     P2PKH_VERBYTE = bytes.fromhex("32")
     P2SH_VERBYTES = bytes.fromhex("6E")
     WIF_BYTE = bytes.fromhex("80")
@@ -598,9 +600,9 @@ class LitecoinPoS(Coin):
         '''
         header = cls.block_header(block, 0)
         header_hex_hash = hash_to_hex_str(cls.header_hash(header))
-        #if header_hex_hash != cls.GENESIS_HASH:
-            #raise CoinError(f'genesis block has hash {header_hex_hash} '
-             #               f'expected {cls.GENESIS_HASH}')
+        if header_hex_hash != cls.GENESIS_HASH:
+            raise CoinError(f'genesis block has hash {header_hex_hash} '
+                            f'expected {cls.GENESIS_HASH}')
 
         return header + b'\0'
 
