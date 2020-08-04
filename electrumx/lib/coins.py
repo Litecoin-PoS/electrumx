@@ -581,7 +581,9 @@ class LitecoinPoS(BitcoinMixin, Coin):
     TX_COUNT_HEIGHT = 2000
     TX_PER_BLOCK = 1400
     CRASH_CLIENT_VER = (3, 2, 3)
-    BLACKLIST_URL = 'https://electrum.org/blacklist.json'
+    RPC_PORT = 58931
+    GENESIS_HASH = ('000002a62d284b34a40e18f27fc770bf'
+                    '26f7a61560ae6a072a2c95aabc60a129')
     PEERS = [
         'seed1.litecoinpos.org',
         'seed2.litecoinpos.org',
