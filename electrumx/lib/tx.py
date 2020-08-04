@@ -122,6 +122,8 @@ class Deserializer:
         self.binary = binary
         self.binary_length = len(binary)
         self.cursor = start
+        self.logger = class_logger(__name__, self.__class__.__name__)
+
 
     def read_tx(self):
         '''Return a deserialized transaction.'''
