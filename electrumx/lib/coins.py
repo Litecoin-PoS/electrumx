@@ -572,25 +572,32 @@ class BitcoinCash(BitcoinMixin, Coin):
                     '<br/><br/>')
         return False
 
-class LitecoinPoS(Coin):
+class LitecoinPoS(ScryptMixin, Coin):
     NAME = "LitecoinPoS"
-    DESERIALIZER = lib_tx.Deserializer
-    TX_COUNT = 3006
-    TX_COUNT_HEIGHT = 2000
-    TX_PER_BLOCK = 2
     SHORTNAME = "LTCP"
     NET = "mainnet"
-    XPUB_VERBYTES = bytes.fromhex("7788B21E")
-    XPRV_VERBYTES = bytes.fromhex("7788ADE4")
-    RPC_PORT = 58931
-    GENESIS_HASH = ('000002a62d284b34a40e18f27fc770bf'
-                    '26f7a61560ae6a072a2c95aabc60a129')
-
-    BASIC_HEADER_SIZE = 117
-
     P2PKH_VERBYTE = bytes.fromhex("32")
     P2SH_VERBYTES = bytes.fromhex("6E")
     WIF_BYTE = bytes.fromhex("80")
+    GENESIS_HASH = ('000002a62d284b34a40e18f27fc770bf'
+                    '26f7a61560ae6a072a2c95aabc60a129')
+    DAEMON = daemon.LegacyRPCDaemon
+    TX_COUNT = 3006
+    TX_COUNT_HEIGHT = 2000
+    TX_PER_BLOCK = 2
+    RPC_PORT = 58931
+    REORG_LIMIT = 5000
+
+    XPUB_VERBYTES = bytes.fromhex("7788B21E")
+    XPRV_VERBYTES = bytes.fromhex("7788ADE4")
+   
+
+
+    
+
+
+  
+
 
 
 class Bitcoin(BitcoinMixin, Coin):
