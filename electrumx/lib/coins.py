@@ -592,6 +592,7 @@ class LitecoinPoS(ScryptMixin, Coin):
     XPRV_VERBYTES = bytes.fromhex("7788ADE4")
    
 
+    BASIC_HEADER_SIZE = 117
 
     
 
