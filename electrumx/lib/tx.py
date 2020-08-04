@@ -139,9 +139,6 @@ class Deserializer:
         we process it in the natural serialized order.
         '''
         start = self.cursor 
-        self.logger.info(f'cursor {start} ')
-        self.logger.info(f'tx {self.read_tx()} ')
-
         return self.read_tx(), self.TX_HASH_FN(self.binary[start:self.cursor])
 
     def read_tx_and_vsize(self):
@@ -183,7 +180,12 @@ class Deserializer:
 
     def _read_nbytes(self, n):
         cursor = self.cursor
+        self.logger.info(f'cursor 1 {cursor}')
+
         self.cursor = end = cursor + n
+        self.logger.info(f'cursor 2 {end}')
+        self.logger.info(f'Binary length {self.binary_length}')
+
         assert self.binary_length >= end
         return self.binary[cursor:end]
 
@@ -261,6 +263,8 @@ class DeserializerSegWit(Deserializer):
     def _read_tx_parts(self):
         '''Return a (deserialized TX, tx_hash, vsize) tuple.'''
         start = self.cursor
+        self.logger.info(f'START {start}')
+
         marker = self.binary[self.cursor + 4]
         if marker:
             # We could call super().read_tx here but the call stack is
