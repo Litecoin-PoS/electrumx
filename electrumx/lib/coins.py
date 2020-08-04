@@ -574,7 +574,7 @@ class BitcoinCash(BitcoinMixin, Coin):
 
 class LitecoinPoS(Coin):
     NAME = "LitecoinPoS"
-    DESERIALIZER = lib_tx.DeserializerSegWit
+
     TX_COUNT = 3006
     TX_COUNT_HEIGHT = 2000
     TX_PER_BLOCK = 2
