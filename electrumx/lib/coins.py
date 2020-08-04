@@ -89,8 +89,8 @@ class Coin:
     WIF_BYTE = bytes.fromhex("80")
     ENCODE_CHECK = Base58.encode_check
     DECODE_CHECK = Base58.decode_check
-    GENESIS_HASH = ('000000000019d6689c085ae165831e93'
-                    '4ff763ae46a2a6c172b3f1b60a8ce26f')
+    GENESIS_HASH = ('000002a62d284b34a40e18f27fc770bf'
+                    '26f7a61560ae6a072a2c95aabc60a129')
     GENESIS_ACTIVATION = 100_000_000
     # Peer discovery
     PEER_DEFAULT_PORTS = {'t': '50001', 's': '50002'}
