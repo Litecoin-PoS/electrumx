@@ -590,6 +590,10 @@ class LitecoinPoS(Coin):
     P2SH_VERBYTES = bytes.fromhex("6E")
     WIF_BYTE = bytes.fromhex("80")
 
+    GENESIS_ACTIVATION = 0
+
+
+
 class Bitcoin(BitcoinMixin, Coin):
     NAME = "Bitcoin"
     DESERIALIZER = lib_tx.DeserializerSegWit
