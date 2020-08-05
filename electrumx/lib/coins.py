@@ -595,8 +595,8 @@ class LitecoinPoS(Coin):
 
     BASIC_HEADER_SIZE = 117
     HEADER_VALUES = ('version', 'prev_block_hash', 'merkle_root', 'timestamp',
-                     'bits', 'nonce')
-    HEADER_UNPACK = struct.Struct('< I 32s 32s I I I').unpack_from
+                     'bits', 'nonce','prevout_stake','vch_block_sig')
+    HEADER_UNPACK = struct.Struct('< I 32s 32s I I I 32s 32s').unpack_from
 
     
 
